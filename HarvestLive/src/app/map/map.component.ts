@@ -6,12 +6,18 @@ import { SunflowerHarvestService } from '../sunflower-harvest.service';
 import { WheatHarvestService } from '../wheat-harvest.service';
 import { Observation } from '../observation';
 
+import * as L from 'leaflet';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+
+
+  public myharvestMap;
+
 
   public barley:Observation[];
   public corn:Observation[];
@@ -64,6 +70,15 @@ export class MapComponent implements OnInit {
       console.log(this.wheat)
      }
    )
+    this.myharvestMap = L.map('harvestMap').setView([	47, 2], 6.4);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: 'Harvest Map'
+
+  }).addTo(this.myharvestMap);
+  /*L.marker([48.864716, 2.349014]).addTo(this.myharvestMap)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .openPopup();*/
+
   }
 
 }
