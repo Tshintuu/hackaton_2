@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { HarvestServiceService } from './harvest-service.service';
-import { Observation } from './observation';
+
 
 @Component({
   selector: 'app-root',
@@ -9,21 +8,12 @@ import { Observation } from './observation';
 })
 export class AppComponent {
 
-  /*public barley:Observation[];
-  public barleyArray:Observation[]=[];
-
-  constructor(public myService : HarvestServiceService){
-    this.barley=[]
+  constructor(){
   }
 
    ngOnInit(){
-     this.myService.getBarleyObservation().subscribe(
-       (param_data:Observation[])=>{
-        this.barley=param_data;
-        console.log(this.barley)
-       }
-     )
-   }*/
+    
+   }
 
 
 
