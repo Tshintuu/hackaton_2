@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { MapPageComponent } from './map-page/map-page.component';
 import { AddPageComponent } from './add-page/add-page.component';
 import { ComparePageComponent } from './compare-page/compare-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapPageComponent,
     AddPageComponent,
-    ComparePageComponent
+    ComparePageComponent,
+    MapComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
