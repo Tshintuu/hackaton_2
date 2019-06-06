@@ -43,8 +43,6 @@ export class MapComponent implements OnInit {
     this.barleyService.getBarleyObservation().subscribe(
       (param_data: Observation[]) => {
         this.barley = param_data;
-        console.log("lat "+this.barley[1].coordinates.latitude);
-        console.log("lon "+this.barley[1].coordinates.longitude);
         for (let i = 0; i < this.barley.length; i++) {
           L.marker([this.barley[i].coordinates.latitude, this.barley[i].coordinates.longitude]).addTo(this.myharvestMap)
           .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
@@ -55,21 +53,41 @@ export class MapComponent implements OnInit {
     this.cornService.getCornObservation().subscribe(
       (param_data: Observation[]) => {
         this.corn = param_data;
+        for (let i = 0; i < this.corn.length; i++) {
+          L.marker([this.corn[i].coordinates.latitude, this.corn[i].coordinates.longitude]).addTo(this.myharvestMap)
+          .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+          .openPopup();
+        }
       }
     )
     this.rapeseedService.getRapeseedObservation().subscribe(
       (param_data: Observation[]) => {
         this.rapeseed = param_data;
+        for (let i = 0; i < this.rapeseed.length; i++) {
+          L.marker([this.rapeseed[i].coordinates.latitude, this.rapeseed[i].coordinates.longitude]).addTo(this.myharvestMap)
+          .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+          .openPopup();
+        }
       }
     )
     this.sunflowerService.getSunflowerObservation().subscribe(
       (param_data: Observation[]) => {
         this.sunflower = param_data;
+        for (let i = 0; i < this.barley.length; i++) {
+          L.marker([this.sunflower[i].coordinates.latitude, this.sunflower[i].coordinates.longitude]).addTo(this.myharvestMap)
+          .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+          .openPopup();
+        }
       }
     )
     this.wheatService.getWheatObservation().subscribe(
       (param_data: Observation[]) => {
         this.wheat = param_data;
+        for (let i = 0; i < this.wheat.length; i++) {
+          L.marker([this.wheat[i].coordinates.latitude, this.wheat[i].coordinates.longitude]).addTo(this.myharvestMap)
+          .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+          .openPopup();
+        }
       }
     )
     this.myharvestMap = L.map('harvestMap').setView([47, 2], 6.4);
