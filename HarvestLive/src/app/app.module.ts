@@ -7,6 +7,8 @@ import { AddPageComponent } from './add-page/add-page.component';
 import { ComparePageComponent } from './compare-page/compare-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { NavbarComponent } from './navbar/navbar.component';
     AddPageComponent,
     ComparePageComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(
       [
         {
