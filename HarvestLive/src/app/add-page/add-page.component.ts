@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observation } from '../observation';
-import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { HarvestServiceService} from '../harvest-service.service';
+import { GeoApiService } from '../geo-api.service'
 
 @Component({
   selector: 'app-add-page',
@@ -10,10 +9,18 @@ import { HarvestServiceService} from '../harvest-service.service';
 })
 export class AddPageComponent implements OnInit {
 
-  constructor(public barleyService: HarvestServiceService) { 
-  }
+  constructor(public barleyService: HarvestServiceService, 
+              public geoService: GeoApiService) {}
+
+  public retrievePos: string;
 
   ngOnInit() {
+    this.geoService.getPosition(28240,'Manou').subscribe(
+      (param:string) => {
+        this.retrievePos=param;
+        console.log(this.retrievePos)
+      }
+    );
   }
      
   onSubmit(value) {
