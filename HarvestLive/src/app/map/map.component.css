@@ -1,7 +1,7 @@
 #harvestMap {
     width: 60rem;
     height: 45rem;
-    border:1.5px outset rgb(228, 65, 65);
+    border:3px outset black;
     box-shadow: 10px 10px 5px gray;
     border-radius: 10px;
 }
