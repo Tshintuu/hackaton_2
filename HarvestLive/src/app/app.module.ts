@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MapComponent } from './map/map.component';
+import { SelectPanelComponent } from './select-panel/select-panel.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MapComponent } from './map/map.component';
     ComparePageComponent,
     FooterComponent,
     NavbarComponent,
-    MapComponent
+    MapComponent,
+    SelectPanelComponent
   ],
   imports: [
     BrowserModule,
