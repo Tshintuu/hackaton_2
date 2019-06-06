@@ -17,7 +17,7 @@ export class Observation {
     targetPrice: string;
     place: string;
     coordinates: Coordinates;
-    id: string;
-    createdAt: string;
+    id?: string;
+    createdAt?: string;
 
 }
