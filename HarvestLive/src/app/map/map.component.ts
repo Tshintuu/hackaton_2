@@ -18,6 +18,7 @@ export class MapComponent implements OnInit, OnChanges {
 
 
   public myharvestMap;
+  public zoom : L.Control
 
 
   public barley: Observation[];
@@ -333,6 +334,7 @@ export class MapComponent implements OnInit, OnChanges {
       minZoom: 1.5
     });
 
+    //this.zoom = new L.Control.Zoom({ position: 'bottomleft' }).addTo(this.myharvestMap)
     this.layer.addTo(this.myharvestMap);
 
 

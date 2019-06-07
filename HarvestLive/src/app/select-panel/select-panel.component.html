@@ -1,27 +1,39 @@
-<div id="form">
-  <div class="form-check m-4">
-    <label class="form-check-label">
-      <input type="checkbox" [checked]="showBarley" (click)="toggleBarley()" class="form-check-input" value="barley">Barley
-    </label>
+<nav class="navbar navbar-expand-md navbar-dark sticky-top" style="background-color:#565656">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <form class="form-inline">
+      <div class="form-check m-4">
+        <label class="form-check-label">
+          <input type="checkbox" [checked]="showBarley" (click)="toggleBarley()" class="form-check-input"
+            value="barley"><strong>Barley</strong>
+        </label>
+      </div>
+      <div class="form-check m-4">
+        <label class="form-check-label">
+          <input type="checkbox" [checked]="showCorn" (click)="toggleCorn()" class="form-check-input" value="corn"><strong>Corn</strong>
+        </label>
+      </div>
+      <div class="form-check m-4">
+        <label class="form-check-label">
+          <input type="checkbox" [checked]="showRapeseed" (click)="toggleRapeseed()" class="form-check-input"
+            value="rapeseed"><strong>Rapeseed</strong>
+        </label>
+      </div>
+      <div class="form-check m-4">
+        <label class="form-check-label">
+          <input type="checkbox" [checked]="showSunflower" (click)="toggleSunflower()" class="form-check-input"
+            value="sunflower"><strong>Sunflower</strong>
+        </label>
+      </div>
+      <div class="form-check m-4">
+        <label class="form-check-label">
+          <input type="checkbox" [checked]="showWheat" (click)="toggleWheat()" class="form-check-input" value=""><strong>Wheat</strong>
+        </label>
+      </div>
+
+    </form>
   </div>
-  <div class="form-check m-4">
-    <label class="form-check-label">
-      <input type="checkbox" [checked]="showCorn" (click)="toggleCorn()" class="form-check-input" value="corn">Corn
-    </label>
-  </div>
-  <div class="form-check m-4">
-    <label class="form-check-label">
-      <input type="checkbox" [checked]="showRapeseed" (click)="toggleRapeseed()" class="form-check-input" value="rapeseed">Rapeseed
-    </label>
-  </div>
-  <div class="form-check m-4">
-    <label class="form-check-label">
-      <input type="checkbox" [checked]="showSunflower" (click)="toggleSunflower()" class="form-check-input" value="sunflower">Sunflower
-    </label>
-  </div>
-  <div class="form-check m-4">
-    <label class="form-check-label">
-      <input type="checkbox" [checked]="showWheat" (click)="toggleWheat()" class="form-check-input" value="">Wheat
-    </label>
-  </div>
-</div>
+</nav>
