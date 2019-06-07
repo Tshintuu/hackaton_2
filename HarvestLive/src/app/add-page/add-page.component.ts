@@ -13,27 +13,30 @@ import { WheatHarvestService } from '../wheat-harvest.service';
 })
 export class AddPageComponent implements OnInit {
 
+  public retrievePos: string[];
+  public cultureType: string;
+  
   constructor(public barleyService: HarvestServiceService, 
               public geoService: GeoApiService, 
-              public barleyService: HarvestServiceService,
               public cornService: CornHarvestService,
               public rapeseedService: RapeseedHarvestService,
               public sunflowerService: SunflowerHarvestService,
-              public wheatService: WheatHarvestService) {}
+              public wheatService: WheatHarvestService) {
+                this.retrievePos = [];
+              }
 
-  public retrievePos: string;
-  public cultureType: string;
 
   ngOnInit() {
-    this.geoService.getPosition(28240,'Manou').subscribe(
-      (param:string) => {
+    
+  }
+     
+  onSubmit(value) {
+    this.geoService.getPosition(parseInt(value.zipCode),value.place).subscribe(
+      (param:string[]) => {
         this.retrievePos=param;
         console.log(this.retrievePos)
       }
     );
-  }
-     
-  onSubmit(value) {
     let jsonObject = {
       "specificWeight" : value.specificWeight,
       "protein" : value.protein,
@@ -51,8 +54,8 @@ export class AddPageComponent implements OnInit {
       "targetPrice": value.targetPrice,
       "place": value.place,
       "coordinates": {
-        "latitude": value.latitude,
-        "longitude": value.longitude
+        "latitude": this.retrievePos[1],
+        "longitude": this.retrievePos[0]
       } 
     }
     switch(value.cultureType) {

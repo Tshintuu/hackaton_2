@@ -85,12 +85,8 @@
     <input class="col-10 m-auto large" type="text" name="place" required="required" [(ngModel)]="place"/>
   </div>
   <div class="row element-input">
-    <label class="col-12 m-auto title">Latitude<span class="required">*</span></label>
-    <input class="col-10 m-auto large" type="number" name="latitude" required="required" [(ngModel)]="latitude"/>
-  </div>
-	<div class="row element-input">
-    <label class="col-12 m-auto title">Longitude<span class="required">*</span></label>
-    <input class="col-10 m-auto large" type="number" name="longitude" required="required" [(ngModel)]="longitude"/>
+    <label class="col-12 m-auto title">Code postal :<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="text" name="zipCode" required="required" pattern="[0-9*]" [(ngModel)]="zipCode"/>
   </div>
   <div class="submit submitButton"><input type="submit" value="Envoyer"/></div>
 </form>
