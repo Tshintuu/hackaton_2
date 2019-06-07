@@ -1,0 +1,37 @@
+section{
+  text-align: center;
+}form{  
+  margin: 0 auto;
+  margin-bottom: 3%;
+  padding: 1%;
+  border: solid 3px grey;
+  font-family: 'Open Sans', sans-serif;
+}h2{
+  margin-bottom: 3%;
+  font-family: 'Montserrat', sans-serif;
+}form div label{
+  margin-top: 3% !important;
+  margin-bottom: 3% !important;
+  font-weight: bold;
+}.submitButton{
+  margin: 2%;
+
+}.submitButton input{
+  border: none;
+  border-radius: 0;
+  background-color: #565656;
+  padding: 3%;
+  color: white;
+  font-weight: bold;
+  box-shadow: 1px 1px 2px #2a2a2a;
+  transition: box-shadow 0.5s; 
+}.submitButton input:hover{
+  box-shadow: 2px 2px 2px #2a2a2a;
+  transition: all 0.5s;
+}
+@media (min-width: 480px){
+  form{  
+    background-color: #ececec !important;
+    box-shadow: 3px 3px 2px #c0c0c0;
+  }
+}

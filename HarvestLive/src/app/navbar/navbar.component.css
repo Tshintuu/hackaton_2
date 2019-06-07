@@ -1,0 +1,17 @@
+nav{
+    background-color: #ececec;
+    border-bottom: solid 3px grey;
+}
+li{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+ul{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 120%;
+}
+img{
+    text-align: center;
+    width: 40%;
+}
