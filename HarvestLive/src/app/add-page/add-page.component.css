@@ -4,8 +4,11 @@ section{
   margin: 0 auto;
   margin-bottom: 3%;
   padding: 1%;
+  border: solid 3px grey;
+  font-family: 'Open Sans', sans-serif;
 }h2{
   margin-bottom: 3%;
+  font-family: 'Montserrat', sans-serif;
 }form div label{
   margin-top: 3% !important;
   margin-bottom: 3% !important;

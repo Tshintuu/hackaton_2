@@ -1,24 +1,18 @@
 #rendementMais{
     text-align: center;
+    background-color: whitesmoke;
+    border: solid 3px grey;
+    margin-top: 3%;
 }
 h1{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
 h2{
-    color: grey;
     font-family: 'Montserrat', sans-serif;
-    font-size: 130%;
-}
-#tableau{
+    text-align: center;
     margin-top: 3%;
-    width: 100%; 
-    margin-left:auto;
-    margin-right:auto;
-}
-img{
-    display: flex;
-    justify-content: center;
+    margin-bottom: 6%;
 }
 #rendementsOrge{
     margin-top: 5%;
@@ -27,12 +21,14 @@ img{
     width: 100%; 
     margin-left:auto;
     margin-right:auto;
+    border: solid 3px grey;
 }
 #techniqueCulturale{
     height: 370px; 
     width: 100%; 
     margin-left:auto;
     margin-right:auto;
+    border: solid 3px grey;
 }
 #rendementsColza{
     margin-top: 5%;
@@ -41,12 +37,14 @@ img{
     width: 100%; 
     margin-left:auto;
     margin-right:auto;
+    border: solid 3px grey;
 }
-#comparaisonColsa{
+#comparaisonColza{
     height: 370px; 
     width: 100%; 
     margin-left:auto;
     margin-right:auto;
+    border: solid 3px grey;
 }
 #rendementsBle{
     margin-top: 5%;
@@ -55,13 +53,24 @@ img{
     width: 100%; 
     margin-left:auto;
     margin-right:auto;
+    border: solid 3px grey;
 }
 #comparaisonBle{
     height: 370px; 
     width: 100%; 
     margin-left:auto;
     margin-right:auto;
+    border: solid 3px grey;
+    margin-bottom: 3%;
 }
-
+section{
+    margin-left: 27%;
+    margin-right: 27%;
+}
+.title{
+    color: grey;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 130%;
+}
 
 
