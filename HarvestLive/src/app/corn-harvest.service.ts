@@ -22,6 +22,9 @@ export class CornHarvestService {
     
     
 }
+addCornObservation(data): Observable<any> {
+  return this.myService.post<any>("https://api.capgrain.com/corn-observations", data);
+}
   
 }
 
