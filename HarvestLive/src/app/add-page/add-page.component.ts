@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observation } from '../observation';
-import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { HarvestServiceService} from '../harvest-service.service';
+import { GeoApiService } from '../geo-api.service'
 import { CornHarvestService } from '../corn-harvest.service';
 import { RapeseedHarvestService } from '../rapeseed-harvest.service';
 import { SunflowerHarvestService } from '../sunflower-harvest.service';
@@ -14,18 +13,24 @@ import { WheatHarvestService } from '../wheat-harvest.service';
 })
 export class AddPageComponent implements OnInit {
 
+  constructor(public barleyService: HarvestServiceService, 
+              public geoService: GeoApiService, 
+              public barleyService: HarvestServiceService,
+              public cornService: CornHarvestService,
+              public rapeseedService: RapeseedHarvestService,
+              public sunflowerService: SunflowerHarvestService,
+              public wheatService: WheatHarvestService) {}
+
+  public retrievePos: string;
   public cultureType: string;
-  
-  constructor(
-    public barleyService: HarvestServiceService,
-    public cornService: CornHarvestService,
-    public rapeseedService: RapeseedHarvestService,
-    public sunflowerService: SunflowerHarvestService,
-    public wheatService: WheatHarvestService
-    ) { 
-  }
 
   ngOnInit() {
+    this.geoService.getPosition(28240,'Manou').subscribe(
+      (param:string) => {
+        this.retrievePos=param;
+        console.log(this.retrievePos)
+      }
+    );
   }
      
   onSubmit(value) {
@@ -50,7 +55,6 @@ export class AddPageComponent implements OnInit {
         "longitude": value.longitude
       } 
     }
-
     switch(value.cultureType) {
       case 'Orge':
         this.barleyService.addBarleyObservation(jsonObject).subscribe();
@@ -67,9 +71,7 @@ export class AddPageComponent implements OnInit {
       case 'Ble':
         this.wheatService.addWheatObservation(jsonObject).subscribe();
         break;
-    }
-    
-    
+    } 
  }
 }
   
