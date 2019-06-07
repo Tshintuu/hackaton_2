@@ -1,5 +1,6 @@
 footer{
-    background-color: #ececec
+    background-color: #ececec;
+    border-top: solid 3px grey;
 }
 p{
     text-align: center;

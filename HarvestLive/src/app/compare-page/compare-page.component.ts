@@ -17,7 +17,7 @@ export class ComparePageComponent implements OnInit {
       title:{
         text: "Résultats en orge",
         fontSize: 40,
-        fontFamily: 'Montserrat'
+        fontFamily: 'Montserrat',
       },
         subtitles:[
         {
@@ -106,19 +106,16 @@ export class ComparePageComponent implements OnInit {
     });
     charthree.render();
   
-    let charthreesub = new CanvasJS.Chart("comparaisonColza", {
+    let comparaisonColza = new CanvasJS.Chart("comparaisonColza", {
       theme: "light2",
       animationEnabled: true,
       exportEnabled: true,
-      subtitles:[
-        {
+      title:{
           text: "Comparaison du colza avec une moyenne de 5 ans",
           fontColor: "grey",
           fontSize: 20,
           fontFamily: 'Montserrat'
-        }
-        ],
-      
+        },
       data: [{
         type: "pie",
         showInLegend: false,
@@ -131,10 +128,9 @@ export class ComparePageComponent implements OnInit {
           { y: 17, name: "Nettement supérieur à la moyenne" },
           { y: 220, name: "Nettement inférieur à la moyenne" },
         ],
-        
       }]
     });
-    charthreesub.render();
+    comparaisonColza.render();
   
     let charthfour = new CanvasJS.Chart("rendementsBle", {
       theme: "light2",
