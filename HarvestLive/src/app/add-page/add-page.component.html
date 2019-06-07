@@ -1,68 +1,98 @@
 <section>
-  <h2>Ajouter des résultats</h2>
-<form style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:480px;min-width:150px"
+  <h2 class="mt-4">Ajouter des résultats</h2>
+<form class="container" style="background-color:#FFFFFF;font-size:14px;font-family:'Open Sans','Helvetica Neue','Helvetica',Arial,Verdana,sans-serif;color:#666666;max-width:480px;min-width:150px"
      method="post" #obsForm="ngForm"(ngSubmit)="onSubmit(obsForm.value)">
-	<div class="element-input">
-    <label class="title">Specific weight<span class="required">*</span></label>
-    <input class="large" type="number" name="specificWeight" required="required" [(ngModel)]="specificWeight"/>
+  <div class="row element-input">
+    <label class="col-12 m-auto title">Type de culture<span class="required">*</span></label>
+    <select class="col-10  m-auto large" type="text" name="cultureType" required="required" [(ngModel)]="cultureType">
+      <option value="" selected >Choisissez un type de culture</option>
+      <option value="Orge">Orge</option>
+      <option value="Mais">Maïs</option>
+      <option value="Colza">Colza</option>
+      <option value="Tournesol">Tournesol</option>
+      <option value="Ble">Blé</option>
+    </select>
   </div>
-	<div class="element-input">
-    <label class="title">Email :<span class="required">*</span></label>
-    <input class="large" type="text" name="email" required="required" [(ngModel)]="email"/>
+	<div *ngIf="cultureType !== 'Mais'" class="row element-input">
+    <label class="col-12 m-auto title">Poids spécifique<span class="required">*</span></label>
+    <input class="col-10  m-auto large" type="number" name="specificWeight" required="required" [(ngModel)]="specificWeight"/>
   </div>
-	<div class="element-input">
-    <label class="title">Téléphone :<span class="required">*</span></label>
-    <input class="large" type="text" name="phone" required="required" [(ngModel)]="phone"/>
+  <div *ngIf="cultureType == 'Ble'" class="row element-input">
+    <label class="col-12 m-auto title">Protéines<span class="required">*</span></label>
+    <input class="col-10  m-auto large" type="number" name="protein" required="required" [(ngModel)]="protein"/>
   </div>
-	<div class="element-input">
-    <label class="title">Variété :<span class="required">*</span></label>
-    <input class="large" type="text" name="variety" required="required" [(ngModel)]="variety"/>
+  <div *ngIf="cultureType == 'Ble'" class="row element-input">
+    <label class="col-12 m-auto title">Temps de chute<span class="required">*</span></label>
+    <input class="col-10  m-auto large" type="number" name="fallingNumber" required="required" [(ngModel)]="fallingNumber"/>
   </div>
-	<div class="element-input">
-    <label class="title">Rendement en Quintaux :<span class="required">*</span></label>
-    <input class="large" type="number" name="yield" required="required" [(ngModel)]="yield"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Email :<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="text" name="email" required="required" [(ngModel)]="email"/>
   </div>
-	<div class="element-input">
-    <label class="title">Humidité :<span class="required">*</span></label>
-    <input class="large" type="number" name="humidity" required="required" [(ngModel)]="humidity"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Téléphone :<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="text" name="phone" required="required" [(ngModel)]="phone"/>
   </div>
-	<div class="element-input">
-    <label class="title">Résultats par rapport à la moyenne des 5 dernières années :<span class="required">*</span></label>
-    <input class="large" type="number" name="yieldNotation" required="required" [(ngModel)]="yieldNotation"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Variété :<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="text" name="variety" required="required" [(ngModel)]="variety"/>
   </div>
-	<div class="element-input">
-    <label class="title">Quantité d'azote apportée ?(en unités)<span class="required">*</span></label>
-    <input class="large" type="number" name="nitrogenQtUsed" required="required" [(ngModel)]="nitrogenQtUsed"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Rendement en Quintaux :<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="number" name="yield" required="required" [(ngModel)]="yield"/>
   </div>
-	<div class="element-input">
-    <label class="title">Sous quelle form ?<span class="required">*</span></label>
-    <input class="large" type="text" name="nitrogenPrdUsed" required="required" [(ngModel)]="nitrogenPrdUsed"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Humidité :<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="number" name="humidity" required="required" [(ngModel)]="humidity"/>
   </div>
-	<div class="element-input">
-    <label class="title">Un commentaire, infos supplémentaires ?<span class="required">*</span></label>
-    <input class="large" type="text" name="comment" required="required" [(ngModel)]="comment"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Résultats par rapport à la moyenne des 5 dernières années :<span class="required">*</span></label>
+    <select class="col-10 m-auto large" type="number" name="yieldNotation" required="required" [(ngModel)]="yieldNotation">
+      <option value=""></option>
+      <option value="1">Nettement inférieur à la moyenne</option>
+      <option value="2">Inférieur à la moyenne</option>
+      <option value="3">Moyen</option>
+      <option value="4">Supérieur à la moyenne</option>
+      <option value="5">Nettement supérieur à la moyenne</option>
+    </select>
   </div>
-	<div class="element-input">
-    <label class="title">Technique culturale :<span class="required">*</span></label>
-    <input class="large" type="text" name="cultivMethod" required="required" [(ngModel)]="cultivMethod"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Quantité d'azote apportée ?(en unités)<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="number" name="nitrogenQtUsed" required="required" [(ngModel)]="nitrogenQtUsed"/>
   </div>
-	<div class="element-input">
-    <label class="title">Prix objectif de vente :<span class="required">*</span></label>
-    <input class="large" type="number" name="targetPrice" required="required" [(ngModel)]="targetPrice"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Sous quelle forme ?<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="text" name="nitrogenPrdUsed" required="required" [(ngModel)]="nitrogenPrdUsed"/>
   </div>
-	<div class="element-input">
-    <label class="title">Commune :<span class="required">*</span></label>
-    <input class="large" type="text" name="place" required="required" [(ngModel)]="place"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Un commentaire, infos supplémentaires ?<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="text" name="comment" required="required" [(ngModel)]="comment"/>
   </div>
-  <div class="element-input">
-    <label class="title">Latitude<span class="required">*</span></label>
-    <input class="large" type="number" name="latitude" required="required" [(ngModel)]="latitude"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Technique culturale :<span class="required">*</span></label>
+    <select class="col-10 m-auto large" type="text" name="cultivMethod" required="required" [(ngModel)]="cultivMethod">
+      <option value="conventional">Conventionnelle</option>
+      <option value="simplified cultivation methods">TCS</option>
+      <option value="organic farming">Agriculture biologique</option>
+    </select>
   </div>
-	<div class="element-input">
-    <label class="title">Longitude<span class="required">*</span></label>
-    <input class="large" type="number" name="longitude" required="required" [(ngModel)]="longitude"/>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Prix objectif de vente :<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="number" name="targetPrice" required="required" [(ngModel)]="targetPrice"/>
   </div>
-  <div class="submit"><input type="submit" value="Envoyer"/></div>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Commune :<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="text" name="place" required="required" [(ngModel)]="place"/>
+  </div>
+  <div class="row element-input">
+    <label class="col-12 m-auto title">Latitude<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="number" name="latitude" required="required" [(ngModel)]="latitude"/>
+  </div>
+	<div class="row element-input">
+    <label class="col-12 m-auto title">Longitude<span class="required">*</span></label>
+    <input class="col-10 m-auto large" type="number" name="longitude" required="required" [(ngModel)]="longitude"/>
+  </div>
+  <div class="submit submitButton"><input type="submit" value="Envoyer"/></div>
 </form>
 </section>
 

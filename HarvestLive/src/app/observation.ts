@@ -4,6 +4,8 @@ import { Coordinates } from './coordinates';
 export class Observation {
 
     specificWeight?: number;
+    protein?:number;
+    fallingnumber?:number;
     email: string;
     phone: string;
     variety: string;

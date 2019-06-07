@@ -22,6 +22,9 @@ export class RapeseedHarvestService {
     
     
 }
+addRapeseedObservation(data): Observable<any> {
+  return this.myService.post<any>("https://api.capgrain.com/rapeseed-observations", data);
+}
   
 }
 

@@ -22,7 +22,7 @@ export class HarvestServiceService {
     };
     return obs.pipe(map(treatment));
   }
-  submitForm(data): Observable<any> {
+  addBarleyObservation(data): Observable<any> {
     return this.myService.post<any>("https://api.capgrain.com/barley-observations", data);
   }
 }
