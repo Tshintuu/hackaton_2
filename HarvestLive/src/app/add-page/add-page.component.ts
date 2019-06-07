@@ -15,7 +15,6 @@ export class AddPageComponent implements OnInit {
 
   constructor(public barleyService: HarvestServiceService, 
               public geoService: GeoApiService, 
-              public barleyService: HarvestServiceService,
               public cornService: CornHarvestService,
               public rapeseedService: RapeseedHarvestService,
               public sunflowerService: SunflowerHarvestService,

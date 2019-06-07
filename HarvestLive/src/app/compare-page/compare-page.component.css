@@ -1,0 +1,67 @@
+#rendementMais{
+    text-align: center;
+}
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+h2{
+    color: grey;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 130%;
+}
+#tableau{
+    margin-top: 3%;
+    width: 100%; 
+    margin-left:auto;
+    margin-right:auto;
+}
+img{
+    display: flex;
+    justify-content: center;
+}
+#rendementsOrge{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 370px; 
+    width: 100%; 
+    margin-left:auto;
+    margin-right:auto;
+}
+#techniqueCulturale{
+    height: 370px; 
+    width: 100%; 
+    margin-left:auto;
+    margin-right:auto;
+}
+#rendementsColza{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 370px; 
+    width: 100%; 
+    margin-left:auto;
+    margin-right:auto;
+}
+#comparaisonColsa{
+    height: 370px; 
+    width: 100%; 
+    margin-left:auto;
+    margin-right:auto;
+}
+#rendementsBle{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    height: 370px; 
+    width: 100%; 
+    margin-left:auto;
+    margin-right:auto;
+}
+#comparaisonBle{
+    height: 370px; 
+    width: 100%; 
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+
