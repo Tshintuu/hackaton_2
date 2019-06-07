@@ -4,6 +4,36 @@
     box-shadow: 10px 10px 5px gray;
     border-radius: 10px;
 }
-strong{
-    color: aquamarine
+.navbar{
+    background-color:#ececec;
+    opacity: 0.7;
+}
+.orge{
+    color: green;
+    font-size: 150%;
+}
+.mais{
+    color: red;
+    font-size: 150%;
+}
+.colza{
+    color: orange;
+    font-size: 150%;
+}
+.tournesol{
+    color: black;
+    font-size: 150%;
+}
+.ble{
+    color: blue;
+    font-size: 150%;
+}
+
+@media screen and (max-width: 500px){
+    .navbar{
+        background-color: black;
+    }
+    .tournesol{
+        color: white;
+    }
 }

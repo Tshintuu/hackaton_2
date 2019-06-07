@@ -37,11 +37,11 @@ import { FormsModule } from '@angular/forms';
           component: MapPageComponent
         },
         {
-          path: "ajouterResultats",
+          path: "addResult",
           component: AddPageComponent
         },
         {
-          path: "comparerResultats",
+          path: "compareResult",
           component: ComparePageComponent
         }
       ]
