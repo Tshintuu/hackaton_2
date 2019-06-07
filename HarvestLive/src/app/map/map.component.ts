@@ -38,6 +38,8 @@ export class MapComponent implements OnInit, OnChanges {
   public wheatCategory: boolean;
   public wheatMarker: L.Marker[];
 
+  public barleyTab: Observation[]
+
 
 
   constructor(
@@ -63,6 +65,8 @@ export class MapComponent implements OnInit, OnChanges {
     this.sunflowerMarker = [];
     this.wheatCategory = true;
     this.wheatMarker = [];
+
+    this.barleyTab = []
   }
   displayCounter(count: boolean) {
     this.curr = count;
@@ -94,9 +98,10 @@ export class MapComponent implements OnInit, OnChanges {
 
     if (this.curr) {
       for (let i: number = 0; i < this.barleyMarkers.length; i++) {
-        this.barleyMarkers[i].addTo(this.myharvestMap)
+        this.barleyMarkers[i].addTo(this.myharvestMap).on('click', onclick)
           .bindPopup('Orge, variété : ' + this.barley[i].variety)
           .openPopup();
+
       }
     }
     else {
@@ -157,15 +162,32 @@ export class MapComponent implements OnInit, OnChanges {
 
   ngOnInit() {
 
+    function getInfo(a){
+      return a;
+    }
+
     this.barleyService.getBarleyObservation().subscribe(
       (param_data: Observation[]) => {
         this.barley = param_data;
         let marker: L.Marker;
         this.barleyMarkers = [];
         for (let i = 0; i < this.barley.length; i++) {
-          marker = L.marker([this.barley[i].coordinates.latitude, this.barley[i].coordinates.longitude], { icon: greenIcon });
+          marker = L.marker([this.barley[i].coordinates.latitude, this.barley[i].coordinates.longitude], { icon: greenIcon }).on('click', () => onclick(this.barley[i]));
           this.barleyMarkers.push(marker);
+          this.barleyTab.push(this.barley[i])
+          console.log(getInfo(this.barleyTab[i].comment))
+          function onclick(barley){
+            document.getElementById("variety").innerHTML ="VARIETY : "+ barley.variety;
+            document.getElementById("place").innerHTML ="PLACE : "+ barley.place
+            document.getElementById("email").innerHTML ="EMAIL : "+ barley.email
+            document.getElementById("phone").innerHTML ="PHONE : "+ barley.phone
+            document.getElementById("humidity").innerHTML ="HUMIDITY : "+ barley.humidity
+            document.getElementById("price").innerHTML ="PRICE : "+ barley.targetPrice
+            document.getElementById("comment").innerHTML ="COMMENT : "+ barley.comment
+           
+          }
         }
+
 
         this.refresh();
       }
@@ -177,8 +199,18 @@ export class MapComponent implements OnInit, OnChanges {
         let marker: L.Marker;
         this.cornMarker = [];
         for (let i = 0; i < this.corn.length; i++) {
-          marker = L.marker([this.corn[i].coordinates.latitude, this.corn[i].coordinates.longitude], { icon: redIcon });
+          marker = L.marker([this.corn[i].coordinates.latitude, this.corn[i].coordinates.longitude], { icon: redIcon }).on('click', () => onclick(this.corn[i]));
           this.cornMarker.push(marker);
+          function onclick(barley){
+            document.getElementById("variety").innerHTML ="VARIETY : "+ barley.variety;
+            document.getElementById("place").innerHTML ="PLACE : "+ barley.place
+            document.getElementById("email").innerHTML ="EMAIL : "+ barley.email
+            document.getElementById("phone").innerHTML ="PHONE : "+ barley.phone
+            document.getElementById("humidity").innerHTML ="HUMIDITY : "+ barley.humidity
+            document.getElementById("price").innerHTML ="PRICE : "+ barley.targetPrice
+            document.getElementById("comment").innerHTML ="COMMENT : "+ barley.comment
+           
+          }
         }
         this.refresh()
       }
@@ -190,8 +222,18 @@ export class MapComponent implements OnInit, OnChanges {
         let marker: L.Marker;
         this.rapeseedMarker = []
         for (let i = 0; i < this.rapeseed.length; i++) {
-          marker = L.marker([this.rapeseed[i].coordinates.latitude, this.rapeseed[i].coordinates.longitude], { icon: yellowIcon });
+          marker = L.marker([this.rapeseed[i].coordinates.latitude, this.rapeseed[i].coordinates.longitude], { icon: yellowIcon }).on('click', () => onclick(this.rapeseed[i]));
           this.rapeseedMarker.push(marker)
+          function onclick(barley){
+            document.getElementById("variety").innerHTML ="VARIETY : "+ barley.variety;
+            document.getElementById("place").innerHTML ="PLACE : "+ barley.place
+            document.getElementById("email").innerHTML ="EMAIL : "+ barley.email
+            document.getElementById("phone").innerHTML ="PHONE : "+ barley.phone
+            document.getElementById("humidity").innerHTML ="HUMIDITY : "+ barley.humidity
+            document.getElementById("price").innerHTML ="PRICE : "+ barley.targetPrice
+            document.getElementById("comment").innerHTML ="COMMENT : "+ barley.comment
+           
+          }
         }
         this.refresh();
       }
@@ -203,8 +245,18 @@ export class MapComponent implements OnInit, OnChanges {
         let marker: L.Marker;
         this.sunflowerMarker = [];
         for (let i = 0; i < this.sunflower.length; i++) {
-          marker = L.marker([this.sunflower[i].coordinates.latitude, this.sunflower[i].coordinates.longitude], { icon: blackIcon });
+          marker = L.marker([this.sunflower[i].coordinates.latitude, this.sunflower[i].coordinates.longitude], { icon: blackIcon }).on('click', () => onclick(this.sunflower[i]));
           this.sunflowerMarker.push(marker)
+          function onclick(barley){
+            document.getElementById("variety").innerHTML ="VARIETY : "+ barley.variety;
+            document.getElementById("place").innerHTML ="PLACE : "+ barley.place
+            document.getElementById("email").innerHTML ="EMAIL : "+ barley.email
+            document.getElementById("phone").innerHTML ="PHONE : "+ barley.phone
+            document.getElementById("humidity").innerHTML ="HUMIDITY : "+ barley.humidity
+            document.getElementById("price").innerHTML ="PRICE : "+ barley.targetPrice
+            document.getElementById("comment").innerHTML ="COMMENT : "+ barley.comment
+           
+          }
         }
         this.refresh();
       }
@@ -216,8 +268,18 @@ export class MapComponent implements OnInit, OnChanges {
         let marker: L.Marker;
         this.wheatMarker = [];
         for (let i = 0; i < this.wheat.length; i++) {
-          marker = L.marker([this.wheat[i].coordinates.latitude, this.wheat[i].coordinates.longitude]);
+          marker = L.marker([this.wheat[i].coordinates.latitude, this.wheat[i].coordinates.longitude]).on('click', () => onclick(this.wheat[i]));
           this.wheatMarker.push(marker)
+          function onclick(barley){
+            document.getElementById("variety").innerHTML ="VARIETY : "+ barley.variety;
+            document.getElementById("place").innerHTML ="PLACE : "+ barley.place
+            document.getElementById("email").innerHTML ="EMAIL : "+ barley.email
+            document.getElementById("phone").innerHTML ="PHONE : "+ barley.phone
+            document.getElementById("humidity").innerHTML ="HUMIDITY : "+ barley.humidity
+            document.getElementById("price").innerHTML ="PRICE : "+ barley.targetPrice
+            document.getElementById("comment").innerHTML ="COMMENT : "+ barley.comment
+           
+          }
         }
         this.refresh();
       }
@@ -264,14 +326,15 @@ export class MapComponent implements OnInit, OnChanges {
 
 
 
-    this.myharvestMap = L.map('harvestMap').setView([48.856614, 2.3522219], 6.4);
+    this.myharvestMap = L.map('harvestMap').setView([5, 5], 3);
     this.layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution: 'Harvest Map'
-
     });
 
     this.layer.addTo(this.myharvestMap);
 
+
   }
+
 
 }
