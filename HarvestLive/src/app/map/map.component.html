@@ -1,3 +1,26 @@
-<div id="harvestMap">
-  
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-4">
+            <div class="row">
+                <app-select-panel (valueChange)='displayCounter($event)' (cornChange)='displayCorn($event)'
+                    (rapeseedChange)='displayRapeseed($event)' (sunflowerChange)='displaySunflower($event)'
+                    (wheatChange)='displayWheat($event)'>
+                </app-select-panel>
+                <div id="panel-info" class="mt-5">
+                    <p id="variety"></p>
+                    <p id="place"></p>
+                    <p id="email"></p>
+                    <p id="phone"></p>
+                    <p id="humidity"></p>
+                    <p id="price"></p>
+                    <p id="comment"></p>
+
+                </div>
+            </div>
+        </div>
+        <div id="harvestMap" class="col-8">
+
+        </div>
+
+    </div>
 </div>

@@ -8,8 +8,12 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MapComponent } from './map/map.component';
+
+import { SelectPanelComponent } from './select-panel/select-panel.component';
+
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     ComparePageComponent,
     FooterComponent,
     NavbarComponent,
-    MapComponent
+    MapComponent,
+    SelectPanelComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HarvestServiceService} from '../harvest-service.service';
 import { GeoApiService } from '../geo-api.service'
+import { CornHarvestService } from '../corn-harvest.service';
+import { RapeseedHarvestService } from '../rapeseed-harvest.service';
+import { SunflowerHarvestService } from '../sunflower-harvest.service';
+import { WheatHarvestService } from '../wheat-harvest.service';
 
 @Component({
   selector: 'app-add-page',
@@ -10,9 +14,15 @@ import { GeoApiService } from '../geo-api.service'
 export class AddPageComponent implements OnInit {
 
   constructor(public barleyService: HarvestServiceService, 
-              public geoService: GeoApiService) {}
+              public geoService: GeoApiService, 
+              public barleyService: HarvestServiceService,
+              public cornService: CornHarvestService,
+              public rapeseedService: RapeseedHarvestService,
+              public sunflowerService: SunflowerHarvestService,
+              public wheatService: WheatHarvestService) {}
 
   public retrievePos: string;
+  public cultureType: string;
 
   ngOnInit() {
     this.geoService.getPosition(28240,'Manou').subscribe(
@@ -26,12 +36,14 @@ export class AddPageComponent implements OnInit {
   onSubmit(value) {
     let jsonObject = {
       "specificWeight" : value.specificWeight,
+      "protein" : value.protein,
+      "fallingNumber" : value.fallingNumber,
       "email" : value.email,
       "phone" : value.phone,
       "variety": value.variety,
       "yield": value.yield,
       "humidity": value.humidity,
-      "yieldNotation": value.yieldNotation,
+      "yieldNotation": parseInt(value.yieldNotation),
       "nitrogenQuantityUsed": value.nitrogenQtUsed,
       "nitrogenProductUsed": value.nitrogenPrdUsed,
       "comment": value.comment,
@@ -43,8 +55,23 @@ export class AddPageComponent implements OnInit {
         "longitude": value.longitude
       } 
     }
-    console.log(jsonObject);
-    this.barleyService.submitForm(jsonObject).subscribe(); 
+    switch(value.cultureType) {
+      case 'Orge':
+        this.barleyService.addBarleyObservation(jsonObject).subscribe();
+        break;
+      case 'Mais':
+        this.cornService.addCornObservation(jsonObject).subscribe();
+        break;
+      case 'Colza':
+        this.rapeseedService.addRapeseedObservation(jsonObject).subscribe();
+        break;
+      case 'Tournesol':
+        this.sunflowerService.addSunflowerObservation(jsonObject).subscribe();
+        break;
+      case 'Ble':
+        this.wheatService.addWheatObservation(jsonObject).subscribe();
+        break;
+    } 
  }
 }
   
