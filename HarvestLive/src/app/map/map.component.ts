@@ -326,9 +326,11 @@ export class MapComponent implements OnInit, OnChanges {
 
 
 
-    this.myharvestMap = L.map('harvestMap').setView([5, 5], 3);
+    this.myharvestMap = L.map(
+      'harvestMap').setView([5, 5], 3);
     this.layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-      attribution: 'Harvest Map'
+      attribution: 'Harvest Map',
+      minZoom: 1.5
     });
 
     this.layer.addTo(this.myharvestMap);
